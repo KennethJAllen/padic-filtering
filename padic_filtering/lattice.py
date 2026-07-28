@@ -1,0 +1,351 @@
+"""Rank-2 lattices in ``Q_p^2``.
+
+A lattice is stored as ``(M, e)`` meaning ``H = p^(-e) * M Z_p^2`` with ``e >= 0``
+and ``M`` a 2x2 integer matrix in column Hermite Normal Form.  Over ``Z_p``
+(a local PID with uniformiser ``p``) every unit can be divided out of the
+Hermite form, so the canonical basis matrix is
+
+    M = [[p^a,   0 ],
+         [ b ,  p^d]]        a, d >= 0,  0 <= b < p^d
+
+and the representation ``(a, b, d, e)`` is *unique* for the ``Z_p``-lattice.
+Equality of lattices is therefore tuple equality -- no normalisation subtleties
+and no accidental "different basis, same lattice" bugs.
+
+The columns of ``M`` generate: ``c1 = p^(-e)(p^a, b)``, ``c2 = p^(-e)(0, p^d)``.
+
+Note that a lattice is *not* required to sit inside ``Z_p^2``: in the horseshoe
+regime ``H_III`` the expanding direction pushes ``H`` out of ``Z_p^2`` and the
+smaller elementary divisor exponent ``d1`` goes negative.  That is exactly the
+"we have lost digits" statement, and it is representable here.
+
+Elementary divisor exponents (Smith Normal Form) are ``d1 <= d2`` with
+
+    d1 = min(a, vp(b), d) - e,      d2 = (a + d) - min(a, vp(b), d) - e
+
+so ``lattice_digits = d1 + d2 = vp(det H)``, ``naive_digits = 2*d1`` (the
+largest ball contained in... i.e. the smallest ball *containing* H is
+``p^d1 Z_p^2``), and ``anisotropy = d2 - d1``.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from fractions import Fraction
+
+from .padic import INFINITY, ppow, vp, zp_int
+
+Vec = tuple[Fraction, Fraction]
+Mat = tuple[tuple[Fraction, Fraction], tuple[Fraction, Fraction]]
+
+# Tripwire against the runaway described in Lattice.__post_init__: p^MAX_EXPONENT
+# is a ~31k-digit number, far beyond any meaningful precision, and the doubling
+# means an unchecked runaway would go from harmless to out-of-memory in a few
+# steps.  Failing loudly here beats allocating gigabytes.
+MAX_EXPONENT = 1 << 16
+
+
+class LatticeOverflow(ValueError):
+    """A lattice exponent grew past :data:`MAX_EXPONENT`."""
+
+
+def as_vec(v) -> Vec:
+    return (Fraction(v[0]), Fraction(v[1]))
+
+
+def mat_vec(A, v) -> Vec:
+    return (Fraction(A[0][0]) * v[0] + Fraction(A[0][1]) * v[1],
+            Fraction(A[1][0]) * v[0] + Fraction(A[1][1]) * v[1])
+
+
+def mat_mul(A, B) -> Mat:
+    return tuple(tuple(sum(Fraction(A[i][k]) * Fraction(B[k][j]) for k in range(2))
+                       for j in range(2)) for i in range(2))
+
+
+def mat_inv(A) -> Mat:
+    det = Fraction(A[0][0]) * A[1][1] - Fraction(A[0][1]) * A[1][0]
+    if det == 0:
+        raise ZeroDivisionError("singular matrix")
+    return ((Fraction(A[1][1]) / det, -Fraction(A[0][1]) / det),
+            (-Fraction(A[1][0]) / det, Fraction(A[0][0]) / det))
+
+
+def _hnf_tracked(cols: list[Vec], p: int):
+    """Column HNF over ``Z_p`` of vectors with entries in ``Z_p``.
+
+    Returns ``[(t1, k1), (t2, k2)]`` where ``t1 = (A, B)`` with ``A != 0``,
+    ``t2 = (0, D)`` with ``D != 0`` is a basis of the span, and ``ki`` is the
+    coefficient vector expressing ``ti`` in terms of the input columns (a
+    ``Z_p``-vector, i.e. every entry has non-negative valuation).
+    """
+    n = len(cols)
+    work = [(v, tuple(Fraction(int(i == j)) for j in range(n)))
+            for i, v in enumerate(cols)]
+    ip = min(range(n), key=lambda i: vp(work[i][0][0], p))
+    pivot = work[ip]
+    if pivot[0][0] == 0:
+        raise ValueError("lattice is not of full rank (first coordinates all 0)")
+    rest = []
+    for i, (v, k) in enumerate(work):
+        if i == ip:
+            continue
+        q = v[0] / pivot[0][0]
+        rest.append(((Fraction(0), v[1] - q * pivot[0][1]),
+                     tuple(kk - q * pk for kk, pk in zip(k, pivot[1]))))
+    second = min(rest, key=lambda t: vp(t[0][1], p), default=None)
+    if second is None or second[0][1] == 0:
+        raise ValueError("lattice is not of full rank (second direction is 0)")
+    return [pivot, second]
+
+
+@dataclass(frozen=True, order=True)
+class Lattice:
+    """``H = p^(-e) * [[p^a, 0], [b, p^d]] Z_p^2``."""
+
+    p: int
+    a: int
+    b: int
+    d: int
+    e: int
+
+    def __post_init__(self):
+        assert self.a >= 0 and self.d >= 0 and self.e >= 0
+        assert 0 <= self.b < self.p**self.d or (self.d == 0 and self.b == 0)
+        if max(self.a, self.d, self.e) > MAX_EXPONENT:
+            raise LatticeOverflow(
+                f"lattice exponent exceeded {MAX_EXPONENT}: a={self.a}, d={self.d}, "
+                f"e={self.e}.  Past the precision floor the quadratic term squares "
+                f"the uncertainty every step, so exponents double; stop the track "
+                f"at the floor instead of propagating a lattice that carries no "
+                f"information (see padic_filtering.precision.PrecisionExhausted)")
+
+    # ---------------------------------------------------------------- build
+
+    @classmethod
+    def from_columns(cls, cols, p: int) -> Lattice:
+        """Lattice generated by any number (>= 2) of rational column vectors."""
+        cols = [as_vec(c) for c in cols]
+        cols = [c for c in cols if c != (0, 0)]
+        if len(cols) < 2:
+            raise ValueError("need at least two nonzero generators")
+        vals = [vp(x, p) for c in cols for x in c if x != 0]
+        e = max(0, -min(vals))
+        scale = ppow(p, e)
+        (t1, _), (t2, _) = _hnf_tracked([(scale * x, scale * y) for x, y in cols], p)
+        a = int(vp(t1[0], p))
+        unit = t1[0] * ppow(p, -a)
+        d = int(vp(t2[1], p))
+        b = zp_int(t1[1] / unit, p, d)
+        # normalise e against a common p-power in M
+        g = min(a, d, vp(b, p) if b else INFINITY)
+        r = int(min(g, e))
+        return cls(p=p, a=a - r, b=b // p**r, d=d - r, e=e - r)
+
+    @classmethod
+    def ball(cls, p: int, k: int) -> Lattice:
+        """``p^k Z_p^2``."""
+        e = max(0, -k)
+        return cls(p=p, a=k + e, b=0, d=k + e, e=e)
+
+    @classmethod
+    def identity(cls, p: int) -> Lattice:
+        return cls.ball(p, 0)
+
+    # ----------------------------------------------------------- accessors
+
+    def columns(self) -> list[Vec]:
+        sc = ppow(self.p, -self.e)
+        return [(sc * self.p**self.a, sc * self.b), (Fraction(0), sc * self.p**self.d)]
+
+    def basis_matrix(self) -> Mat:
+        c1, c2 = self.columns()
+        return ((c1[0], c2[0]), (c1[1], c2[1]))
+
+    def elementary_divisors(self) -> tuple[int, int]:
+        """Exponents ``(d1, d2)`` of the elementary divisors, ``d1 <= d2``."""
+        lo = int(min(self.a, self.d, vp(self.b, self.p) if self.b else INFINITY))
+        return lo - self.e, self.a + self.d - lo - self.e
+
+    @property
+    def d1(self) -> int:
+        return self.elementary_divisors()[0]
+
+    @property
+    def d2(self) -> int:
+        return self.elementary_divisors()[1]
+
+    def det_valuation(self) -> int:
+        return self.a + self.d - 2 * self.e
+
+    def lattice_digits(self) -> int:
+        return self.det_valuation()
+
+    def naive_digits(self) -> int:
+        """Digits of the smallest *ball* containing ``H`` (2 * d1)."""
+        return 2 * self.d1
+
+    def anisotropy(self) -> int:
+        d1, d2 = self.elementary_divisors()
+        return d2 - d1
+
+    def y_projection_exponent(self) -> int:
+        """``w`` with ``{h_y : h in H} = p^w Z_p``."""
+        return int(min(vp(self.b, self.p) if self.b else INFINITY, self.d)) - self.e
+
+    def x_projection_exponent(self) -> int:
+        """``w`` with ``{h_x : h in H} = p^w Z_p``."""
+        return self.a - self.e
+
+    # ---------------------------------------------------------- operations
+
+    def contains(self, v) -> bool:
+        v = as_vec(v)
+        w = (v[0] * ppow(self.p, self.e), v[1] * ppow(self.p, self.e))
+        z1 = w[0] * ppow(self.p, -self.a)
+        if z1 != 0 and vp(z1, self.p) < 0:
+            return False
+        z2 = (w[1] - self.b * z1) * ppow(self.p, -self.d)
+        return z2 == 0 or vp(z2, self.p) >= 0
+
+    def coords(self, v) -> tuple[Fraction, Fraction] | None:
+        """Coordinates of ``v`` in the basis, or ``None`` if ``v not in H``."""
+        v = as_vec(v)
+        w = (v[0] * ppow(self.p, self.e), v[1] * ppow(self.p, self.e))
+        z1 = w[0] * ppow(self.p, -self.a)
+        z2 = (w[1] - self.b * z1) * ppow(self.p, -self.d)
+        if (z1 != 0 and vp(z1, self.p) < 0) or (z2 != 0 and vp(z2, self.p) < 0):
+            return None
+        return (z1, z2)
+
+    def min_vector(self) -> Vec:
+        """A lattice vector of minimal valuation ``d1`` -- the *worst* direction.
+
+        This is the direction in which the estimate is least precise, and it is
+        what the transversality check compares between the forward and backward
+        passes (compare bases, not just divisors).
+        """
+        c1, c2 = self.columns()
+        v1 = min(vp(c1[0], self.p), vp(c1[1], self.p))
+        v2 = min(vp(c2[0], self.p), vp(c2[1], self.p))
+        return c1 if v1 <= v2 else c2
+
+    def image(self, A) -> Lattice:
+        """``A . H`` for an invertible rational matrix ``A``."""
+        return Lattice.from_columns([mat_vec(A, c) for c in self.columns()], self.p)
+
+    def scaled(self, k: int) -> Lattice:
+        """``p^k H``."""
+        return Lattice.from_columns([(x * ppow(self.p, k), y * ppow(self.p, k))
+                                     for x, y in self.columns()], self.p)
+
+    def dual(self) -> Lattice:
+        """``H* = {x : <x,y> in Z_p for all y in H} = p^e M^(-T) Z_p^2``."""
+        Mi = mat_inv(self.basis_matrix())
+        cols = [(Mi[0][0], Mi[0][1]), (Mi[1][0], Mi[1][1])]  # rows of M^-1 = cols of M^-T
+        return Lattice.from_columns(cols, self.p)
+
+    def __add__(self, other: Lattice) -> Lattice:
+        assert self.p == other.p
+        return Lattice.from_columns(self.columns() + other.columns(), self.p)
+
+    def intersect(self, other: Lattice) -> Lattice:
+        """``H1 ∩ H2``, via ``(H1 ∩ H2)* = H1* + H2*``."""
+        assert self.p == other.p
+        return (self.dual() + other.dual()).dual()
+
+    def add_vector(self, v) -> Lattice:
+        """Smallest lattice containing ``H`` and the vector ``v``."""
+        return Lattice.from_columns(self.columns() + [as_vec(v)], self.p)
+
+    def reduce_vector(self, v) -> Vec:
+        """Canonical representative of ``v + H`` (small, and in the same coset)."""
+        from .padic import mod_pk
+
+        v = as_vec(v)
+        p, e = self.p, self.e
+        c1, c2 = self.columns()
+        r0 = mod_pk(v[0], p, self.a - e)
+        z1 = (v[0] - r0) / c1[0]
+        assert z1 == 0 or vp(z1, p) >= 0
+        v1 = v[1] - z1 * c1[1]
+        r1 = mod_pk(v1, p, self.d - e)
+        return (r0, r1)
+
+    def __repr__(self) -> str:
+        d1, d2 = self.elementary_divisors()
+        return (f"Lattice(p={self.p}, a={self.a}, b={self.b}, d={self.d}, "
+                f"e={self.e}; divisors=({d1},{d2}))")
+
+
+def solve_in_span(cols, w, p: int):
+    """Coefficients ``z`` (over ``Z_p``) with ``sum z_i cols_i == w``.
+
+    Returns ``None`` if ``w`` is not in the ``Z_p``-span of ``cols``.
+    """
+    cols = [as_vec(c) for c in cols]
+    w = as_vec(w)
+    vals = [vp(x, p) for c in cols for x in c if x != 0] + \
+           [vp(x, p) for x in w if x != 0]
+    e = max(0, -min(vals)) if vals else 0
+    sc = ppow(p, e)
+    scaled = [(sc * x, sc * y) for x, y in cols]
+    ws = (sc * w[0], sc * w[1])
+    (t1, k1), (t2, k2) = _hnf_tracked(scaled, p)
+    r1 = ws[0] / t1[0]
+    if r1 != 0 and vp(r1, p) < 0:
+        return None
+    r2 = (ws[1] - r1 * t1[1]) / t2[1]
+    if r2 != 0 and vp(r2, p) < 0:
+        return None
+    return tuple(r1 * x + r2 * y for x, y in zip(k1, k2))
+
+
+def transversality_defect(H1: Lattice, H2: Lattice) -> int | None:
+    """How far the two lattices' worst directions are from ultrametrically
+    orthogonal.
+
+    Takes a minimal vector from each and compares the valuation of their
+    determinant against the sum of the two minimal valuations.  For genuinely
+    transverse directions the determinant valuation is exactly ``d1(H1) +
+    d1(H2)`` and the defect is ``0``; any positive defect is cancellation, i.e.
+    the two passes are informative about overlapping directions and the
+    intersection gains less than the tent predicts.
+
+    This is the computational form of the ADP Lemma 23-24 tube transversality
+    (Lipschitz constants ``|b/gamma|`` with product ``< 1``).
+
+    Returns ``None`` when either lattice is *isotropic* (``d1 == d2``, e.g. the
+    initial ball): such a lattice has no distinguished worst direction, every
+    direction attains ``d1``, and the comparison is not defined.  A ball is
+    transverse to nothing and to everything.
+    """
+    if H1.d1 == H1.d2 or H2.d1 == H2.d2:
+        return None
+    u, w = H1.min_vector(), H2.min_vector()
+    det = u[0] * w[1] - u[1] * w[0]
+    if det == 0:
+        return INFINITY
+    return int(vp(det, H1.p)) - (H1.d1 + H2.d1)
+
+
+def intersect_cosets(v1, H1: Lattice, v2, H2: Lattice):
+    """Intersect the cosets ``v1 + H1`` and ``v2 + H2``.
+
+    Returns ``(v, H1 ∩ H2)`` with ``v`` a canonical representative of the
+    intersection, or ``None`` if the two cosets are disjoint.  This is the
+    measurement/update step: conditioning one lattice estimate on another.
+    """
+    v1, v2 = as_vec(v1), as_vec(v2)
+    w = (v2[0] - v1[0], v2[1] - v1[1])
+    cols1, cols2 = H1.columns(), H2.columns()
+    z = solve_in_span(cols1 + [(-x, -y) for x, y in cols2], w, H1.p)
+    if z is None:
+        return None
+    h = (z[0] * cols1[0][0] + z[1] * cols1[1][0],
+         z[0] * cols1[0][1] + z[1] * cols1[1][1])
+    H = H1.intersect(H2)
+    v = (v1[0] + h[0], v1[1] + h[1])
+    assert H1.contains((v[0] - v1[0], v[1] - v1[1]))
+    assert H2.contains((v[0] - v2[0], v[1] - v2[1]))
+    return H.reduce_vector(v), H

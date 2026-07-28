@@ -1,0 +1,18 @@
+[project]
+name = "p-adic-filtering"
+version = "0.1.0"
+description = "Two-sided p-adic precision tracking (lattice smoother) for Henon horseshoes"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "matplotlib>=3.11.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

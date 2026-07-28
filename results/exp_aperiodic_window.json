@@ -1,0 +1,193 @@
+{
+  "seed": 20260726,
+  "L": 200,
+  "windows": [
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 40,
+      "T": 24,
+      "k": 74,
+      "itinerary_window": "-++++------+-++-++---+--",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 88,
+      "T": 24,
+      "k": 74,
+      "itinerary_window": "+-+-+-+-+-++--+-+-+-++++",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 140,
+      "T": 24,
+      "k": 74,
+      "itinerary_window": "----+-----+++++--+--+-+-",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 76,
+      "T": 48,
+      "k": 146,
+      "itinerary_window": "++---+--+-+-+-+-+-+-+-++--+-+-+-++++-+--++-+-++-",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 40,
+      "T": 24,
+      "k": 74,
+      "itinerary_window": "+-+-----++--+-+-+--++--+",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 88,
+      "T": 24,
+      "k": 74,
+      "itinerary_window": "+--+-+---+---+--+--+----",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 140,
+      "T": 24,
+      "k": 74,
+      "itinerary_window": "-+-+--+-+-+++++--++--+-+",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 76,
+      "T": 48,
+      "k": 146,
+      "itinerary_window": "++-+--+++--++--+-+---+---+--+--+------+-++--+-++",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 40,
+      "T": 24,
+      "k": 74,
+      "itinerary_window": "++++++--++--+++---+++---",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 88,
+      "T": 24,
+      "k": 74,
+      "itinerary_window": "--++--+---+-+++++--+++--",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 140,
+      "T": 24,
+      "k": 74,
+      "itinerary_window": "-----++--++---+++--+-++-",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "t0": 76,
+      "T": 48,
+      "k": 146,
+      "itinerary_window": "-+-+-++-++-+--++--+---+-+++++--+++--+-+---+--+--",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 1,
+      "t0": 88,
+      "T": 24,
+      "k": 121,
+      "itinerary_window": "---+-+-+--+++-+++-+++++-",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 3,
+      "s": 2,
+      "m": 0,
+      "t0": 88,
+      "T": 24,
+      "k": 144,
+      "itinerary_window": "-++++-++--+--+--+++-+-++",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    },
+    {
+      "p": 5,
+      "s": 1,
+      "m": 0,
+      "t0": 88,
+      "T": 24,
+      "k": 74,
+      "itinerary_window": "-++-++-+++-++-+---+---++",
+      "C_idealised": 0,
+      "C_certified": 0,
+      "max_defect": 0
+    }
+  ],
+  "verdict": "THEOREM.md \u00a75 item 3 (the one genuine empirical gap) is closed at the cheap-attack level: on 15 windows of length T in {24, 48} cut from random length-200 itineraries (minimal cyclic period 200, window positions 40/88/140, regimes (s,m) in {(1,0),(1,1),(2,0)} and p=5), the sharp smoothed law holds as an equality with C = 0 in both the idealised and the budget-honouring certified settings, transversality defect 0 throughout.  The Jacobian sequence over each window carries no period, so the tent is not an artefact of short-period orbits.",
+  "_meta": {
+    "experiment": "exp_aperiodic_window",
+    "written": "2026-07-28T02:18:01+00:00",
+    "python": "3.14.6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+  }
+}

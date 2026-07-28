@@ -1,0 +1,269 @@
+{
+  "review_checks": {
+    "agrees": true,
+    "steps_compared": 13,
+    "rows": [
+      {
+        "t": 0,
+        "forward_mine": [
+          0,
+          0
+        ],
+        "forward_ref": [
+          0,
+          0
+        ],
+        "smoothed_mine": [
+          0,
+          12
+        ],
+        "smoothed_ref": [
+          0,
+          12
+        ]
+      },
+      {
+        "t": 1,
+        "forward_mine": [
+          -1,
+          1
+        ],
+        "forward_ref": [
+          -1,
+          1
+        ],
+        "smoothed_mine": [
+          1,
+          11
+        ],
+        "smoothed_ref": [
+          1,
+          11
+        ]
+      },
+      {
+        "t": 2,
+        "forward_mine": [
+          -2,
+          2
+        ],
+        "forward_ref": [
+          -2,
+          2
+        ],
+        "smoothed_mine": [
+          2,
+          10
+        ],
+        "smoothed_ref": [
+          2,
+          10
+        ]
+      },
+      {
+        "t": 3,
+        "forward_mine": [
+          -3,
+          3
+        ],
+        "forward_ref": [
+          -3,
+          3
+        ],
+        "smoothed_mine": [
+          3,
+          9
+        ],
+        "smoothed_ref": [
+          3,
+          9
+        ]
+      },
+      {
+        "t": 4,
+        "forward_mine": [
+          -4,
+          4
+        ],
+        "forward_ref": [
+          -4,
+          4
+        ],
+        "smoothed_mine": [
+          4,
+          8
+        ],
+        "smoothed_ref": [
+          4,
+          8
+        ]
+      },
+      {
+        "t": 5,
+        "forward_mine": [
+          -5,
+          5
+        ],
+        "forward_ref": [
+          -5,
+          5
+        ],
+        "smoothed_mine": [
+          5,
+          7
+        ],
+        "smoothed_ref": [
+          5,
+          7
+        ]
+      },
+      {
+        "t": 6,
+        "forward_mine": [
+          -6,
+          6
+        ],
+        "forward_ref": [
+          -6,
+          6
+        ],
+        "smoothed_mine": [
+          6,
+          6
+        ],
+        "smoothed_ref": [
+          6,
+          6
+        ]
+      },
+      {
+        "t": 7,
+        "forward_mine": [
+          -7,
+          7
+        ],
+        "forward_ref": [
+          -7,
+          7
+        ],
+        "smoothed_mine": [
+          5,
+          7
+        ],
+        "smoothed_ref": [
+          5,
+          7
+        ]
+      },
+      {
+        "t": 8,
+        "forward_mine": [
+          -8,
+          8
+        ],
+        "forward_ref": [
+          -8,
+          8
+        ],
+        "smoothed_mine": [
+          4,
+          8
+        ],
+        "smoothed_ref": [
+          4,
+          8
+        ]
+      },
+      {
+        "t": 9,
+        "forward_mine": [
+          -9,
+          9
+        ],
+        "forward_ref": [
+          -9,
+          9
+        ],
+        "smoothed_mine": [
+          3,
+          9
+        ],
+        "smoothed_ref": [
+          3,
+          9
+        ]
+      },
+      {
+        "t": 10,
+        "forward_mine": [
+          -10,
+          10
+        ],
+        "forward_ref": [
+          -10,
+          10
+        ],
+        "smoothed_mine": [
+          2,
+          10
+        ],
+        "smoothed_ref": [
+          2,
+          10
+        ]
+      },
+      {
+        "t": 11,
+        "forward_mine": [
+          -11,
+          11
+        ],
+        "forward_ref": [
+          -11,
+          11
+        ],
+        "smoothed_mine": [
+          1,
+          11
+        ],
+        "smoothed_ref": [
+          1,
+          11
+        ]
+      },
+      {
+        "t": 12,
+        "forward_mine": [
+          -12,
+          12
+        ],
+        "forward_ref": [
+          -12,
+          12
+        ],
+        "smoothed_mine": [
+          0,
+          12
+        ],
+        "smoothed_ref": [
+          0,
+          12
+        ]
+      }
+    ],
+    "note": "independent implementation: dense rational matrices and a dual-based intersection, with no Hermite form over Z_p"
+  },
+  "sagemath": {
+    "available": false,
+    "status": "SKIPPED -- SageMath not installed",
+    "how_to_run": "install SageMath (https://www.sagemath.org) and re-run; the relevant module is sage.rings.padics.lattice_precision, and the quantity to match is the prediction-only track's elementary divisor exponents (d1, d2) from exp_5_1_anisotropy.json",
+    "reference": "github.com/roed314/padicprec (Caruso-Roe-Vaccon)"
+  },
+  "verdict": "PASS against review_checks.py on every step compared. SageMath comparison SKIPPED (not installed) -- this is the one part of \u00a75.6 not executed here, and it is the first thing a CRV reviewer will ask about.",
+  "_meta": {
+    "experiment": "exp_5_6_baseline",
+    "written": "2026-07-28T02:16:42+00:00",
+    "python": "3.14.6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+  }
+}

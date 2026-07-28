@@ -1,0 +1,26 @@
+{
+  "seed": 20260726,
+  "n_orbits": 10000,
+  "primes": [
+    3,
+    5,
+    7
+  ],
+  "certified_steps": 247325,
+  "violations": [],
+  "n_violations": 0,
+  "mutation_control": {
+    "description": "inflation disabled; the exactness condition is misused",
+    "orbits_run": 10000,
+    "steps_checked": 64870,
+    "violations_detected": 2976,
+    "detection_rate": 0.2976
+  },
+  "verdict": "PASS: zero violations in 10,000 random orbits (247,325 certified steps).  The mutation control (inflation disabled) is caught on 2,976 orbits, so the assertion has teeth.",
+  "_meta": {
+    "experiment": "exp_5_4_certification",
+    "written": "2026-07-28T02:16:39+00:00",
+    "python": "3.14.6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+  }
+}

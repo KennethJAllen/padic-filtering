@@ -1,0 +1,338 @@
+{
+  "seed": 20260726,
+  "n_samples": 200,
+  "T": 20,
+  "k": 30,
+  "prec": 400,
+  "p": 3,
+  "s": 1,
+  "m": 0,
+  "itinerary": "++-+--+-",
+  "exactness_horizon": 12,
+  "rows": [
+    {
+      "t": 0,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        30,
+        30
+      ],
+      "sampled_d1d2": [
+        30,
+        30
+      ],
+      "exact": true
+    },
+    {
+      "t": 1,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        29,
+        31
+      ],
+      "sampled_d1d2": [
+        29,
+        31
+      ],
+      "exact": true
+    },
+    {
+      "t": 2,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        28,
+        32
+      ],
+      "sampled_d1d2": [
+        28,
+        32
+      ],
+      "exact": true
+    },
+    {
+      "t": 3,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        27,
+        33
+      ],
+      "sampled_d1d2": [
+        27,
+        33
+      ],
+      "exact": true
+    },
+    {
+      "t": 4,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        26,
+        34
+      ],
+      "sampled_d1d2": [
+        26,
+        34
+      ],
+      "exact": true
+    },
+    {
+      "t": 5,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        25,
+        35
+      ],
+      "sampled_d1d2": [
+        25,
+        35
+      ],
+      "exact": true
+    },
+    {
+      "t": 6,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        24,
+        36
+      ],
+      "sampled_d1d2": [
+        24,
+        36
+      ],
+      "exact": true
+    },
+    {
+      "t": 7,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        23,
+        37
+      ],
+      "sampled_d1d2": [
+        23,
+        37
+      ],
+      "exact": true
+    },
+    {
+      "t": 8,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        22,
+        38
+      ],
+      "sampled_d1d2": [
+        22,
+        38
+      ],
+      "exact": true
+    },
+    {
+      "t": 9,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        21,
+        39
+      ],
+      "sampled_d1d2": [
+        21,
+        39
+      ],
+      "exact": true
+    },
+    {
+      "t": 10,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        20,
+        40
+      ],
+      "sampled_d1d2": [
+        20,
+        40
+      ],
+      "exact": true
+    },
+    {
+      "t": 11,
+      "filter_det": 60,
+      "sampled_det": 60,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        19,
+        41
+      ],
+      "sampled_d1d2": [
+        19,
+        41
+      ],
+      "exact": true
+    },
+    {
+      "t": 12,
+      "filter_det": 57,
+      "sampled_det": 57,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        18,
+        39
+      ],
+      "sampled_d1d2": [
+        18,
+        39
+      ],
+      "exact": false
+    },
+    {
+      "t": 13,
+      "filter_det": 54,
+      "sampled_det": 54,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        17,
+        37
+      ],
+      "sampled_d1d2": [
+        17,
+        37
+      ],
+      "exact": false
+    },
+    {
+      "t": 14,
+      "filter_det": 51,
+      "sampled_det": 51,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        16,
+        35
+      ],
+      "sampled_d1d2": [
+        16,
+        35
+      ],
+      "exact": false
+    },
+    {
+      "t": 15,
+      "filter_det": 48,
+      "sampled_det": 48,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        15,
+        33
+      ],
+      "sampled_d1d2": [
+        15,
+        33
+      ],
+      "exact": false
+    },
+    {
+      "t": 16,
+      "filter_det": 45,
+      "sampled_det": 45,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        14,
+        31
+      ],
+      "sampled_d1d2": [
+        14,
+        31
+      ],
+      "exact": false
+    },
+    {
+      "t": 17,
+      "filter_det": 42,
+      "sampled_det": 42,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        13,
+        29
+      ],
+      "sampled_d1d2": [
+        13,
+        29
+      ],
+      "exact": false
+    },
+    {
+      "t": 18,
+      "filter_det": 39,
+      "sampled_det": 39,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        12,
+        27
+      ],
+      "sampled_d1d2": [
+        12,
+        27
+      ],
+      "exact": false
+    },
+    {
+      "t": 19,
+      "filter_det": 36,
+      "sampled_det": 36,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        11,
+        25
+      ],
+      "sampled_d1d2": [
+        11,
+        25
+      ],
+      "exact": false
+    },
+    {
+      "t": 20,
+      "filter_det": 33,
+      "sampled_det": 33,
+      "slack_digits": 0,
+      "filter_d1d2": [
+        10,
+        23
+      ],
+      "sampled_d1d2": [
+        10,
+        23
+      ],
+      "exact": false
+    }
+  ],
+  "max_slack_digits": 0,
+  "slack_while_exact": 0,
+  "verdict": "PASS, and better than predicted: the slack is 0 at *every* step, not merely while the linearisation is exact.  The filter's lattice is exactly the smallest lattice containing the image of the initial coset, so the exact-linearisation advantage is fully spent.  The inflation step turns out to be tight rather than conservative: the quadratic offsets (0, h_y^2) generate precisely the module p^(2w) that inflation adds, so nothing is given away there either.",
+  "_meta": {
+    "experiment": "exp_5_5_slack",
+    "written": "2026-07-28T02:16:42+00:00",
+    "python": "3.14.6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+  }
+}

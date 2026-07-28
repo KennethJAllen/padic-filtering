@@ -1,0 +1,645 @@
+{
+  "seed": 20260726,
+  "A_idealised": [
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 8,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 24,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 56,
+      "k": 2,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 100,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 24,
+      "k": 40,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 100,
+      "k": 40,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 24,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "+"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 24,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 24,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 24,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 24,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "+--++-+-+--+"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 24,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "-++--+-+++--+-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 16,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 5,
+      "s": 1,
+      "m": 0,
+      "T": 16,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 7,
+      "s": 1,
+      "m": 0,
+      "T": 16,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 11,
+      "s": 1,
+      "m": 0,
+      "T": 16,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 2,
+      "m": 0,
+      "T": 16,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 3,
+      "m": 0,
+      "T": 16,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 1,
+      "T": 16,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 2,
+      "T": 16,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    },
+    {
+      "p": 5,
+      "s": 2,
+      "m": 1,
+      "T": 16,
+      "k": 0,
+      "C": 0,
+      "max_defect": 0,
+      "itinerary": "++-+--+-"
+    }
+  ],
+  "B_certified_scaled_k": [
+    {
+      "T": 4,
+      "k": 14,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "T": 8,
+      "k": 26,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "T": 16,
+      "k": 50,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "T": 24,
+      "k": 74,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "T": 32,
+      "k": 98,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "T": 48,
+      "k": 146,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "T": 64,
+      "k": 194,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 16,
+      "k": 50,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "p": 5,
+      "s": 1,
+      "m": 0,
+      "T": 16,
+      "k": 50,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "p": 7,
+      "s": 1,
+      "m": 0,
+      "T": 16,
+      "k": 50,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "p": 11,
+      "s": 1,
+      "m": 0,
+      "T": 16,
+      "k": 50,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "p": 3,
+      "s": 2,
+      "m": 0,
+      "T": 16,
+      "k": 96,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "p": 3,
+      "s": 3,
+      "m": 0,
+      "T": 16,
+      "k": 142,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 1,
+      "T": 16,
+      "k": 81,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 2,
+      "T": 16,
+      "k": 112,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    },
+    {
+      "p": 5,
+      "s": 2,
+      "m": 1,
+      "T": 16,
+      "k": 127,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null
+    }
+  ],
+  "C_certified_fixed_k": [
+    {
+      "k": 40,
+      "T": 8,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null,
+      "sharp_budget": 21
+    },
+    {
+      "k": 40,
+      "T": 12,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null,
+      "sharp_budget": 33
+    },
+    {
+      "k": 40,
+      "T": 16,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": 15,
+      "backward_exactness_horizon": 1,
+      "sharp_budget": 45
+    },
+    {
+      "k": 40,
+      "T": 20,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": 15,
+      "backward_exactness_horizon": 5,
+      "sharp_budget": 57
+    },
+    {
+      "k": 40,
+      "T": 24,
+      "C": 3,
+      "max_defect": 0,
+      "exactness_horizon": 15,
+      "backward_exactness_horizon": 9,
+      "sharp_budget": 69
+    },
+    {
+      "k": 40,
+      "T": 32,
+      "C": 14,
+      "max_defect": 0,
+      "exactness_horizon": 15,
+      "backward_exactness_horizon": 17,
+      "sharp_budget": 93
+    },
+    {
+      "k": 40,
+      "T": 40,
+      "C": 24,
+      "max_defect": 0,
+      "exactness_horizon": 15,
+      "backward_exactness_horizon": 25,
+      "sharp_budget": 117
+    },
+    {
+      "k": 40,
+      "T": 56,
+      "C": 46,
+      "max_defect": 0,
+      "exactness_horizon": 15,
+      "backward_exactness_horizon": 41,
+      "sharp_budget": 165
+    },
+    {
+      "k": 60,
+      "T": 8,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null,
+      "sharp_budget": 21
+    },
+    {
+      "k": 60,
+      "T": 12,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null,
+      "sharp_budget": 33
+    },
+    {
+      "k": 60,
+      "T": 16,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null,
+      "sharp_budget": 45
+    },
+    {
+      "k": 60,
+      "T": 20,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": null,
+      "backward_exactness_horizon": null,
+      "sharp_budget": 57
+    },
+    {
+      "k": 60,
+      "T": 24,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": 22,
+      "backward_exactness_horizon": 2,
+      "sharp_budget": 69
+    },
+    {
+      "k": 60,
+      "T": 32,
+      "C": 0,
+      "max_defect": 0,
+      "exactness_horizon": 22,
+      "backward_exactness_horizon": 10,
+      "sharp_budget": 93
+    },
+    {
+      "k": 60,
+      "T": 40,
+      "C": 11,
+      "max_defect": 0,
+      "exactness_horizon": 22,
+      "backward_exactness_horizon": 18,
+      "sharp_budget": 117
+    },
+    {
+      "k": 60,
+      "T": 56,
+      "C": 32,
+      "max_defect": 0,
+      "exactness_horizon": 22,
+      "backward_exactness_horizon": 34,
+      "sharp_budget": 165
+    }
+  ],
+  "D_skew": [
+    {
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "T": 12,
+      "k": 7,
+      "sharp_equals_symmetric": true,
+      "max_understatement": 0,
+      "peak_t": [
+        6
+      ],
+      "predicted_peak": 6.0
+    },
+    {
+      "p": 5,
+      "s": 1,
+      "m": 0,
+      "T": 12,
+      "k": 7,
+      "sharp_equals_symmetric": true,
+      "max_understatement": 0,
+      "peak_t": [
+        6
+      ],
+      "predicted_peak": 6.0
+    },
+    {
+      "p": 7,
+      "s": 1,
+      "m": 0,
+      "T": 12,
+      "k": 7,
+      "sharp_equals_symmetric": true,
+      "max_understatement": 0,
+      "peak_t": [
+        6
+      ],
+      "predicted_peak": 6.0
+    },
+    {
+      "p": 11,
+      "s": 1,
+      "m": 0,
+      "T": 12,
+      "k": 7,
+      "sharp_equals_symmetric": true,
+      "max_understatement": 0,
+      "peak_t": [
+        6
+      ],
+      "predicted_peak": 6.0
+    },
+    {
+      "p": 3,
+      "s": 2,
+      "m": 0,
+      "T": 12,
+      "k": 7,
+      "sharp_equals_symmetric": true,
+      "max_understatement": 0,
+      "peak_t": [
+        6
+      ],
+      "predicted_peak": 6.0
+    },
+    {
+      "p": 3,
+      "s": 3,
+      "m": 0,
+      "T": 12,
+      "k": 7,
+      "sharp_equals_symmetric": true,
+      "max_understatement": 0,
+      "peak_t": [
+        6
+      ],
+      "predicted_peak": 6.0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 1,
+      "T": 12,
+      "k": 7,
+      "sharp_equals_symmetric": false,
+      "max_understatement": 4,
+      "peak_t": [
+        4
+      ],
+      "predicted_peak": 4.0
+    },
+    {
+      "p": 3,
+      "s": 1,
+      "m": 2,
+      "T": 12,
+      "k": 7,
+      "sharp_equals_symmetric": false,
+      "max_understatement": 6,
+      "peak_t": [
+        3
+      ],
+      "predicted_peak": 3.0
+    },
+    {
+      "p": 5,
+      "s": 2,
+      "m": 1,
+      "T": 12,
+      "k": 7,
+      "sharp_equals_symmetric": false,
+      "max_understatement": 4,
+      "peak_t": [
+        5
+      ],
+      "predicted_peak": 4.8
+    }
+  ],
+  "sharp_law": "forward  d1 = k - s*t,             d2 = k + (s+m)*t; backward d1 = k - (s+m)*(T-t),     d2 = k + s*(T-t); smoothed d1 = k + min((s+m)t, s(T-t)), d2 = k + max((s+m)t, s(T-t)). Asserted as an equality in every configuration of block A.  THEOREM.md \u00a73's symmetric tent k + s*min(t, T-t) is the m = 0 case; for m > 0 it is a valid but not tight lower bound, and the peak sits at t* = sT/(2s+m), not T/2.",
+  "verdict": "The smoothing mechanism is confirmed and is exact: for the idealised lattices of THEOREM.md \u00a72 (pure Jacobian products) C = 0 with no hypothesis -- verified for T up to 100, k down to 0, periods 1-19, p in {3,5,7,11}, s in {1,2,3}, m in {0,1,2}, with transversality defect 0 throughout.  For *certified* lattices C = 0 once the starting precision honours the sharp budget k >= (3s+2m)(T-1) of NOTE.md Thm B' (an iff for exactness of both passes, asserted in both directions in block C); at fixed k, C grows linearly once T outruns the exactness horizon (k=40: C = 0,0,3,14,24,46 for T = 16,20,24,32,40,56).  So the theorem as literally stated -- C independent of T at fixed k -- is false, and the repair is to add that hypothesis, after which the conclusion strengthens from an inequality to equality with C = 0.  The failure mode is the quadratic-remainder budget, NOT the stable/unstable transversality: the defect is 0 in every configuration measured, including all those with C > 0.",
+  "_meta": {
+    "experiment": "exp_theorem",
+    "written": "2026-07-28T02:18:33+00:00",
+    "python": "3.14.6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+  }
+}

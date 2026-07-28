@@ -1,0 +1,465 @@
+{
+  "seed": 20260726,
+  "ks": [
+    6,
+    9,
+    12,
+    18,
+    24,
+    30,
+    36,
+    48,
+    60
+  ],
+  "cases": [
+    {
+      "name": "horseshoe-3adic",
+      "region": "H_III",
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "horizon": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        22
+      ],
+      "predicted": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        22
+      ],
+      "backward_horizon_j": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        22
+      ],
+      "backward_predicted": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        22
+      ],
+      "slope_observed": 0.3333333333333333,
+      "slope_predicted": 0.3333333333333333,
+      "backward_slope_observed": 0.3333333333333333,
+      "backward_slope_predicted": 0.3333333333333333
+    },
+    {
+      "name": "horseshoe-5adic",
+      "region": "H_III",
+      "p": 5,
+      "s": 1,
+      "m": 0,
+      "horizon": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        22
+      ],
+      "predicted": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        22
+      ],
+      "backward_horizon_j": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        22
+      ],
+      "backward_predicted": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        18,
+        22
+      ],
+      "slope_observed": 0.3333333333333333,
+      "slope_predicted": 0.3333333333333333,
+      "backward_slope_observed": 0.3333333333333333,
+      "backward_slope_predicted": 0.3333333333333333
+    },
+    {
+      "name": "horseshoe-3adic-s2",
+      "region": "H_III",
+      "p": 3,
+      "s": 2,
+      "m": 0,
+      "horizon": [
+        3,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12
+      ],
+      "predicted": [
+        3,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12
+      ],
+      "backward_horizon_j": [
+        3,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12
+      ],
+      "backward_predicted": [
+        3,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12
+      ],
+      "slope_observed": 0.16666666666666666,
+      "slope_predicted": 0.16666666666666666,
+      "backward_slope_observed": 0.16666666666666666,
+      "backward_slope_predicted": 0.16666666666666666
+    },
+    {
+      "name": "horseshoe-3adic-m1",
+      "region": "H_III",
+      "p": 3,
+      "s": 1,
+      "m": 1,
+      "horizon": [
+        3,
+        4,
+        4,
+        6,
+        7,
+        9,
+        10,
+        13,
+        16
+      ],
+      "predicted": [
+        3,
+        4,
+        4,
+        6,
+        7,
+        9,
+        10,
+        13,
+        16
+      ],
+      "backward_horizon_j": [
+        3,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        14
+      ],
+      "backward_predicted": [
+        3,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        14
+      ],
+      "slope_observed": 0.24074074074074073,
+      "slope_predicted": 0.25,
+      "backward_slope_observed": 0.2037037037037037,
+      "backward_slope_predicted": 0.2
+    },
+    {
+      "name": "horseshoe-3adic-m2",
+      "region": "H_III",
+      "p": 3,
+      "s": 1,
+      "m": 2,
+      "horizon": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        13
+      ],
+      "predicted": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        13
+      ],
+      "backward_horizon_j": [
+        2,
+        3,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "backward_predicted": [
+        2,
+        3,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "slope_observed": 0.2037037037037037,
+      "slope_predicted": 0.2,
+      "backward_slope_observed": 0.14814814814814814,
+      "backward_slope_predicted": 0.14285714285714285
+    },
+    {
+      "name": "attractor-3adic",
+      "region": "H+_II",
+      "p": 3,
+      "s": 0,
+      "m": 1,
+      "horizon": [
+        7,
+        10,
+        13,
+        19,
+        25,
+        31,
+        37,
+        49,
+        61
+      ],
+      "predicted": [
+        7,
+        10,
+        13,
+        19,
+        25,
+        31,
+        37,
+        49,
+        61
+      ],
+      "backward_horizon_j": [
+        5,
+        6,
+        8,
+        11,
+        14,
+        17,
+        20,
+        26,
+        32
+      ],
+      "backward_predicted": [
+        5,
+        6,
+        8,
+        11,
+        14,
+        17,
+        20,
+        26,
+        32
+      ],
+      "slope_observed": 1.0,
+      "slope_predicted": 1.0,
+      "backward_slope_observed": 0.5,
+      "backward_slope_predicted": 0.5
+    }
+  ],
+  "threshold_sweep": [
+    {
+      "name": "horseshoe-3adic",
+      "region": "H_III",
+      "p": 3,
+      "s": 1,
+      "m": 0,
+      "W": 6,
+      "k_threshold": 15,
+      "at_threshold": {
+        "fwd": null,
+        "bwd": null
+      },
+      "below_threshold": {
+        "fwd": 6,
+        "bwd": 0
+      }
+    },
+    {
+      "name": "horseshoe-5adic",
+      "region": "H_III",
+      "p": 5,
+      "s": 1,
+      "m": 0,
+      "W": 6,
+      "k_threshold": 15,
+      "at_threshold": {
+        "fwd": null,
+        "bwd": null
+      },
+      "below_threshold": {
+        "fwd": 6,
+        "bwd": 0
+      }
+    },
+    {
+      "name": "horseshoe-3adic-s2",
+      "region": "H_III",
+      "p": 3,
+      "s": 2,
+      "m": 0,
+      "W": 6,
+      "k_threshold": 30,
+      "at_threshold": {
+        "fwd": null,
+        "bwd": null
+      },
+      "below_threshold": {
+        "fwd": 6,
+        "bwd": 0
+      }
+    },
+    {
+      "name": "horseshoe-3adic-m1",
+      "region": "H_III",
+      "p": 3,
+      "s": 1,
+      "m": 1,
+      "W": 6,
+      "k_threshold": 25,
+      "at_threshold": {
+        "fwd": null,
+        "bwd": null
+      },
+      "below_threshold": {
+        "fwd": null,
+        "bwd": 0
+      }
+    },
+    {
+      "name": "horseshoe-3adic-m2",
+      "region": "H_III",
+      "p": 3,
+      "s": 1,
+      "m": 2,
+      "W": 6,
+      "k_threshold": 35,
+      "at_threshold": {
+        "fwd": null,
+        "bwd": null
+      },
+      "below_threshold": {
+        "fwd": null,
+        "bwd": 0
+      }
+    },
+    {
+      "name": "attractor-3adic",
+      "region": "H+_II",
+      "p": 3,
+      "s": 0,
+      "m": 1,
+      "W": 6,
+      "k_threshold": 10,
+      "at_threshold": {
+        "fwd": null,
+        "bwd": null
+      },
+      "below_threshold": {
+        "fwd": null,
+        "bwd": 0
+      }
+    }
+  ],
+  "updated": {
+    "k": 12,
+    "lag": 3,
+    "predict_only_horizon": 6,
+    "updated_horizon": 12,
+    "predict_only_exhausted_at": 14,
+    "updated_exhausted_at": null
+  },
+  "verdict": "PASS, as exact equalities.  Both horizons are exactly the NOTE.md Prop 4.4 values -- forward (k-m)//(3s+m) + 2, backward k//(3s+2m) + 2 -- in every regime measured (s in {0,1,2}, m in {0,1,2}, p in {3,5}), so both grow linearly in the starting precision k and the runway is tunable.  The two rates differ whenever m > 0: the backward pass is the binding one, which is why a budget computed from the forward rate 3s+m under-provisions it.  Prop 4.4's iff is checked in both directions: at k = (3s+2m)(W-1) neither pass inflates over the window and at k-1 one does.  Periodic updates push the forward horizon out further.",
+  "_meta": {
+    "experiment": "exp_5_2_horizon",
+    "written": "2026-07-28T02:13:48+00:00",
+    "python": "3.14.6",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39"
+  }
+}
